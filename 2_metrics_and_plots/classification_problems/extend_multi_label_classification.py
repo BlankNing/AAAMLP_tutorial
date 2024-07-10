@@ -93,3 +93,6 @@ if __name__ =='__main__':
     print(mapk(y_true, y_pred, k=3))
 
     print(mapk(y_true, y_pred, k=4))
+
+# How do you implement log loss for multi-label classification? try it yourself
+
