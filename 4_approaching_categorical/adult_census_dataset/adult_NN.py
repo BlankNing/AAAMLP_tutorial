@@ -39,7 +39,7 @@ def create_model(data, catcols):
     for c in catcols:
         num_unique_values = len(np.unique(data[c]))
         embed_dim = int(min(np.ceil((num_unique_values) / 2), 50))
-        inp = nn.Input(shape=(1,))
+        inp = torch.nn.functional.one_hot(torch.tensor(0), num_classes=num_unique_values + 1)
         out = nn.Embedding(num_unique_values + 1, embed_dim, name=c)(inp)
         out = nn.SpatialDropout1D(0.3)(out)
         out = nn.Flatten()(out)
